@@ -37,7 +37,7 @@
 	</div>
 
 
-	<div class="example">
+	<div>
 		<script>
 		  $(function() {
 			$('#defaultValueExample').timepicker({ 'scrollDefaultNow': true });
@@ -49,6 +49,48 @@
 		<p><input id="defaultValueExample" type="text" /></p>
 
 		<code>$('#defaultValueExample').timepicker({ 'scrollDefaultNow': true });</code>
+	</div>
+
+
+	<div>
+		<script>
+		  $(function() {
+			$('#disableTimeRangesExample').timepicker( { 
+				'className': 'no-scroll',
+				'disableTimeRanges': [[0, 10800], ['7pm', '11pm']]
+			});
+		  });
+		</script>
+
+		<h3>DisableTimeRanges Example</h3>
+		<p>Prevent selection of certain time values.</p>
+		<p><input id="disableTimeRangesExample" type="text" /></p>
+
+		<code>$('#disableTimeRangesExample').timepicker( { 
+				'className': 'no-scroll',
+				'disableTimeRanges': [[0, 10800], ['7pm', '11pm']] 
+			});
+		</code>
+	</div>
+
+
+	<div>
+		<script>
+		  $(function() {
+			$('#disableTimeRangesExample2').timepicker( { 
+				'disableTimeRanges': [['1am', '2am'], ['3am', '4:01am']] 
+			});
+		  });
+		</script>
+
+		<h3>DisableTimeRanges Example</h3>
+		<p>Prevent selection of certain time values.</p>
+		<p><input id="disableTimeRangesExample2" type="text" /></p>
+
+		<code>$('#disableTimeRangesExample2').timepicker( { 
+				'disableTimeRanges': [['1am', '2am'], ['3am', '4:01am']] 
+			});
+		</code>
 	</div>
 
 

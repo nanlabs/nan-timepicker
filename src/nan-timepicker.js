@@ -22,7 +22,7 @@
 		durationTime: null,
 		step: 30,
 		showDuration: false,
-		timeFormat: 'g:ia',
+		timeFormat: 'H:i',
 		scrollDefaultNow: false,
 		scrollDefaultTime: false,
 		selectOnBlur: false,
@@ -40,12 +40,12 @@
 		hrs: 'hrs'
 	};
 
-	var methods =
-	{
-		init: function(options)
-		{
-			return this.each(function()
-			{
+	var methods = {
+
+		init: function(options) {
+
+			return this.each(function() {
+
 				var self = $(this);
 
 				// convert dropdowns to text input
@@ -86,8 +86,7 @@
 			});
 		},
 
-		show: function(e)
-		{
+		show: function(e) {
 			var self = $(this);
 			var settings = self.data('timepicker-settings');
 
@@ -157,8 +156,7 @@
 			self.trigger('showTimepicker');
 		},
 
-		hide: function(e)
-		{
+		hide: function(e) {
 			$('.ui-timepicker-wrapper:visible').each(function() {
 				var list = $(this);
 				var self = list.data('timepicker-input');
@@ -173,8 +171,8 @@
 			});
 		},
 
-		option: function(key, value)
-		{
+		option: function(key, value) {
+
 			var self = this;
 			var settings = self.data('timepicker-settings');
 			var list = self.data('timepicker-list');
@@ -201,28 +199,23 @@
 			return self;
 		},
 
-		getSecondsFromMidnight: function()
-		{
+		getSecondsFromMidnight: function() {
 			return _time2int(_getTimeValue(this));
 		},
 
-		getTime: function()
-		{
+		getTime: function() {
 			var self = this;
-			var today = new Date();
-			today.setHours(0, 0, 0, 0);
+			var today = _dateClearTime(new Date());
 			return new Date(today.valueOf() + (_time2int(_getTimeValue(self))*1000));
 		},
 
-		setTime: function(value)
-		{
+		setTime: function(value) {
 			var self = this;
 			var prettyTime = _int2time(_time2int(value), self.data('timepicker-settings').timeFormat);
 			_setTimeValue(self, prettyTime);
 		},
 
-		remove: function()
-		{
+		remove: function() {
 			var self = this;
 
 			// check if this element is a timepicker
@@ -246,8 +239,7 @@
 
 	// private methods
 
-	function _parseSettings(settings)
-	{
+	function _parseSettings(settings) {
 		if (settings.minTime) {
 			settings.minTime = _time2int(settings.minTime);
 		}
@@ -278,8 +270,7 @@
 		return settings;
 	}
 
-	function _render(self)
-	{
+	function _render(self) {
 		var settings = self.data('timepicker-settings');
 		var list = self.data('timepicker-list');
 
@@ -816,6 +807,10 @@
 		var minutes = ( time[2]*1 || 0 );
 		var seconds = ( time[3]*1 || 0 );
 		return hours*3600 + minutes*60 + seconds;
+	}
+
+	function _dateClearTime(date) {
+		return date.setHours(0, 0, 0, 0);
 	}
 
 	function _pad2(n) {
