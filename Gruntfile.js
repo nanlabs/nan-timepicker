@@ -22,7 +22,8 @@ module.exports = function(grunt) {
 
         globals: {
             $: true,
-            jQuery: true
+            jQuery: true,
+            define: true
         }
       },
       all: ['src/**/*.js']
