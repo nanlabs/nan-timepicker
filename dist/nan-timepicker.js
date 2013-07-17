@@ -30,6 +30,7 @@
 		forceRoundTime: false,
 		appendTo: 'body',
 		disableTimeRanges: [],
+		timeRanges: [],
 		closeOnWindowScroll: false,
 		disableTextInput: false
 	};
@@ -239,6 +240,10 @@
 
 	// private methods
 
+	function _comparator(a, b) {
+		return a[0] - b[0];
+	}
+
 	function _parseSettings(settings) {
 		if (settings.minTime) {
 			settings.minTime = _time2int(settings.minTime);
@@ -262,9 +267,32 @@
 			}
 
 			// sort by starting time
-			settings.disableTimeRanges = settings.disableTimeRanges.sort(function(a, b){
-				return a[0] - b[0];
-			});
+			settings.disableTimeRanges = settings.disableTimeRanges.sort(_comparator);
+		}
+
+		// Custom time ranges
+
+		if (settings.timeRanges.length > 0) {
+
+			// Verify structure of each time range
+			for (var x in settings.timeRanges) {
+
+				var timeRange = settings.timeRanges[x];
+				timeRange.className = timeRange.className || '';
+				timeRange.disabled = (timeRange.disabled !== 'undefined') ? timeRange.disabled : false;
+				timeRange.ranges = timeRange.ranges || [];
+
+				// Convert string times to integers
+				for (var y in timeRange.ranges) {
+					timeRange.ranges[y] = [
+						_time2int(timeRange.ranges[y][0]),
+						_time2int(timeRange.ranges[y][1])
+					];
+				}
+
+				// Sort ranges by starting time
+				timeRange.ranges = timeRange.ranges.sort(_comparator);
+			}
 		}
 
 		return settings;
@@ -311,6 +339,8 @@
 		var drCur = 0;
 		var drLen = dr.length;
 
+		var timeRs = settings.timeRanges;
+
 		for (var i=start; i <= end; i += settings.step*60) {
 			var timeInt = i%_ONE_DAY;
 
@@ -332,6 +362,24 @@
 
 				if (dr[drCur] && timeInt >= dr[drCur][0] && timeInt < dr[drCur][1]) {
 					row.addClass('ui-timepicker-disabled');
+				}
+			}
+
+			// Search in all the time ranges
+			for (var j in timeRs) {
+				var tr = timeRs[j],
+					range = tr.ranges,
+					current = 0,
+					length = range.length;
+
+				if (current < length) {
+					if (timeInt >= range[current][1]) {
+						current += 1;
+					}
+
+					if (range[current] && timeInt >= range[current][0] && timeInt < range[current][1]) {
+						row.addClass(tr.className);
+					}
 				}
 			}
 
@@ -470,6 +518,21 @@
 				return false;
 			}
 		});
+
+		// check that time isn't within disabled time ranges
+		for (var i in settings.timeRanges) {
+
+			var tr = settings.timeRanges[i];
+			if (tr.disabled) {
+				for (var j in tr.ranges) {
+					var r = tr.ranges[j];
+					if (seconds >= r[0] && seconds < r[1]) {
+						self.trigger('timeRangeError');
+						break;
+					}
+				}
+			}
+		}
 
 		if (settings.forceRoundTime) {
 			var offset = seconds % (settings.step*60); // step is in minutes
