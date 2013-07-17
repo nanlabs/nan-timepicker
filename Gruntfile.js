@@ -30,11 +30,11 @@ module.exports = function(grunt) {
     },
 
     banner: [
-      '/*!',
+      '/**',
       ' * <%= pkg.name %>.js <%= pkg.version %>',
       ' * https://github.com/nanlabs/<%= pkg.name %>',
       ' * Date Compiled: <%= grunt.template.today("yyyy-mm-dd") %>',
-      ' */\n\n'
+      ' * */\n\n'
     ].join('\n'),
 
     uglify: {
