@@ -368,9 +368,15 @@
 			// Search in all the time ranges
 			for (var j in timeRs) {
 				var tr = timeRs[j],
+					className = tr.className,
+					disabled = tr.disabled,
 					range = tr.ranges,
 					current = 0,
 					length = range.length;
+
+				if (disabled) {
+					className += ' ui-timepicker-disabled';
+				}
 
 				if (current < length) {
 					if (timeInt >= range[current][1]) {
@@ -378,7 +384,7 @@
 					}
 
 					if (range[current] && timeInt >= range[current][0] && timeInt < range[current][1]) {
-						row.addClass(tr.className);
+						row.addClass(className);
 					}
 				}
 			}
@@ -521,7 +527,6 @@
 
 		// check that time isn't within disabled time ranges
 		for (var i in settings.timeRanges) {
-
 			var tr = settings.timeRanges[i];
 			if (tr.disabled) {
 				for (var j in tr.ranges) {
