@@ -6,6 +6,8 @@
   <title>NaN Timepicker Plugin &ndash; Demos and Documentation</title>
   <meta name="description" content="A lightweight time-picker plugin based on 'jQuery timepicker plugin'." />
 
+  <link href="//netdna.bootstrapcdn.com/twitter-bootstrap/2.3.2/css/bootstrap-combined.min.css" rel="stylesheet">
+
   <!-- Vendor Libraries -->
   <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.9.0/jquery.min.js"></script>
 
@@ -14,140 +16,189 @@
   <link rel="stylesheet" type="text/css" href="../dist/nan-timepicker.css" />
 
   <style type="text/css">
-  	.highlighted {
-  		color: blue !important;
-  	}
-  	.highlighted2 {
-  		color: red !important;
-  	}
+    .highlighted {
+      color: blue !important;
+    }
+    .highlighted2 {
+      color: red !important;
+    }
   </style>
 
 </head>
 
 <body>
 
-<div id="container">
+<div class="container">
+
+  <h1>NaN Time-picker</h1>
+  <p class="lead">A lightweight time-picker plugin based on 'jQuery timepicker plugin'.</p>
+
+  <div>
+    <script>
+      $(function() {
+      $('#basicExample').timepicker();
+      });
+    </script>
+
+    <h3>Basic Example</h3>
+    <p><input id="basicExample" type="text" /></p>
+
+    <pre>$('#basicExample').timepicker();</pre>
+  </div>
 
 
-	<h1>NaN Time-picker</h1>
-	<p>A lightweight time-picker plugin based on 'jQuery timepicker plugin'.</p>
+  <div>
+    <script>
+      $(function() {
+      $('#defaultValueExample').timepicker({ 'scrollDefaultNow': true });
+      });
+    </script>
 
-	<div>
-		<script>
-		  $(function() {
-			$('#basicExample').timepicker();
-		  });
-		</script>
+    <h3>Scroll Default Example</h3>
+    <p>Set the scroll position to local time if no value selected.</p>
+    <p><input id="defaultValueExample" type="text" /></p>
 
-		<h3>Basic Example</h3>
-		<p><input id="basicExample" type="text" /></p>
-
-		<code>$('#basicExample').timepicker();</code>
-	</div>
-
-
-	<div>
-		<script>
-		  $(function() {
-			$('#defaultValueExample').timepicker({ 'scrollDefaultNow': true });
-		  });
-		</script>
-
-		<h3>Scroll Default Example</h3>
-		<p>Set the scroll position to local time if no value selected.</p>
-		<p><input id="defaultValueExample" type="text" /></p>
-
-		<code>$('#defaultValueExample').timepicker({ 'scrollDefaultNow': true });</code>
-	</div>
+    <pre>
+$('#defaultValueExample').timepicker({ 
+  'scrollDefaultNow': true 
+});</pre>
+  </div>
 
 
-	<div>
-		<script>
-		  $(function() {
-			$('#disableTimeRangesExample').timepicker( { 
-				'className': 'no-scroll',
-				'disableTimeRanges': [[0, 10800], ['7pm', '11pm']]
-			});
-		  });
-		</script>
+  <div>
+    <script>
+      $(function() {
+      $('#disableTimeRangesExample').timepicker( { 
+        'className': 'no-scroll',
+        'disableTimeRanges': [[0, 10800], ['7pm', '11pm']]
+      });
+      });
+    </script>
 
-		<h3>DisableTimeRanges Example</h3>
-		<p>Prevent selection of certain time values.</p>
-		<p><input id="disableTimeRangesExample" type="text" /></p>
+    <h3>DisableTimeRanges Example</h3>
+    <p>Prevent selection of certain time values.</p>
+    <p><input id="disableTimeRangesExample" type="text" /></p>
 
-		<code>$('#disableTimeRangesExample').timepicker( { 
-				'className': 'no-scroll',
-				'disableTimeRanges': [[0, 10800], ['7pm', '11pm']] 
-			});
-		</code>
-	</div>
-
-
-	<div>
-		<script>
-		  $(function() {
-			$('#disableTimeRangesExample2').timepicker( { 
-				'disableTimeRanges': [['1am', '2am'], ['3am', '4:01am']] 
-			});
-		  });
-		</script>
-
-		<h3>DisableTimeRanges Example</h3>
-		<p>Prevent selection of certain time values.</p>
-		<p><input id="disableTimeRangesExample2" type="text" /></p>
-
-		<code>$('#disableTimeRangesExample2').timepicker( { 
-				'disableTimeRanges': [['1am', '2am'], ['3am', '4:01am']] 
-			});
-		</code>
-	</div>
+    <pre>
+$('#disableTimeRangesExample').timepicker( { 
+  'className': 'no-scroll',
+  'disableTimeRanges': [[0, 10800], ['7pm', '11pm']] 
+});</pre>
+  </div>
 
 
-	<div>
-		<script>
-		  $(function() {
-			$('#disableTimeRangesExample3').timepicker( { 
-				className: 'no-scroll',
-				disableTimeRanges: [[0, 10800], ['7pm', '11pm']],
-				timeRanges: [
-					{
-						className: 'highlighted',
-						disabled: true,
-						ranges: [['5am', '6am'], ['11am', '11:30am']]
-					},
-					{
-						className: 'highlighted2',
-						disabled: false,
-						ranges: [['2pm', '3pm'], ['4pm', '7pm']]
-					}
-				]
-			});
-		  });
-		</script>
+  <div>
+    <script>
+      $(function() {
+      $('#disableTimeRangesExample2').timepicker( { 
+        'disableTimeRanges': [['1am', '2am'], ['3am', '4:01am']] 
+      });
+      });
+    </script>
 
-		<h3>DisableTimeRanges Example</h3>
-		<p>Prevent selection of certain time values.</p>
-		<p><input id="disableTimeRangesExample3" type="text" /></p>
+    <h3>DisableTimeRanges Example</h3>
+    <p>Prevent selection of certain time values.</p>
+    <p><input id="disableTimeRangesExample2" type="text" /></p>
 
-		<code>
-			$('#disableTimeRangesExample3').timepicker( { 
-				className: 'no-scroll',
-				disableTimeRanges: [[0, 10800], ['7pm', '11pm']],
-				timeRanges: [
-					{
-						className: 'highlighted',
-						disabled: true,
-						ranges: [['5am', '6am'], ['11am', '12am']]
-					},
-					{
-						className: 'highlighted2',
-						disabled: false,
-						ranges: [['2pm', '3pm'], ['6pm', '7pm']]
-					}
-				]
-			});
-		</code>
-	</div>
+    <pre>
+$('#disableTimeRangesExample2').timepicker( { 
+  'disableTimeRanges': [['1am', '2am'], ['3am', '4:01am']] 
+});</pre>
+  </div>
+
+
+  <div>
+    <script>
+      $(function() {
+      $('#disableTimeRangesExample3').timepicker( { 
+        className: 'no-scroll',
+        disableTimeRanges: [[0, 10800], ['7pm', '11pm']],
+        timeRanges: [
+          {
+            className: 'highlighted',
+            disabled: true,
+            ranges: [['5am', '6am'], ['11am', '11:30am']]
+          },
+          {
+            className: 'highlighted2',
+            disabled: false,
+            ranges: [['2pm', '3pm'], ['4pm', '7pm']]
+          }
+        ]
+      });
+      });
+    </script>
+
+    <h3>DisableTimeRanges Example</h3>
+    <p>Prevent selection of certain time values.</p>
+    <p><input id="disableTimeRangesExample3" type="text" /></p>
+
+    <pre>
+$('#disableTimeRangesExample3').timepicker( { 
+  className: 'no-scroll',
+  disableTimeRanges: [[0, 10800], ['7pm', '11pm']],
+  timeRanges: [
+    {
+      className: 'highlighted',
+      disabled: true,
+      ranges: [['5am', '6am'], ['11am', '12am']]
+    },
+    {
+      className: 'highlighted2',
+      disabled: false,
+      ranges: [['2pm', '3pm'], ['6pm', '7pm']]
+    }
+  ]
+});</pre>
+  </div>
+
+
+  <div>
+    <script>
+      $(function() {
+      $('#timepicker4').timepicker( { 
+        className: 'no-scroll',
+        disableTimeRanges: [[0, 10800], ['7pm', '11pm']],
+        legend: '<span>This is a legend</span>',
+        timeRanges: [
+          {
+            className: 'highlighted',
+            disabled: true,
+            ranges: [['5am', '6am'], ['11am', '11:30am']]
+          },
+          {
+            className: 'highlighted2',
+            disabled: false,
+            ranges: [['2pm', '3pm'], ['4pm', '7pm']]
+          }
+        ]
+      });
+      });
+    </script>
+
+    <h3>Timepicker with Legend Example</h3>
+    <p>Display a legend to explain range times styles or any other purpose.</p>
+    <p><input id="timepicker4" type="text" /></p>
+
+    <pre>
+$('#disableTimeRangesExample3').timepicker( { 
+  className: 'no-scroll',
+  disableTimeRanges: [[0, 10800], ['7pm', '11pm']],
+  legend: '&lt;span&gt;This is a legend&lt;/span&gt;',
+  timeRanges: [
+    {
+      className: 'highlighted',
+      disabled: true,
+      ranges: [['5am', '6am'], ['11am', '12am']]
+    },
+    {
+      className: 'highlighted2',
+      disabled: false,
+      ranges: [['2pm', '3pm'], ['6pm', '7pm']]
+    }
+  ]
+});</pre>
+  </div>
 
 
 </div>
