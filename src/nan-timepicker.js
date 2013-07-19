@@ -32,7 +32,8 @@
 		disableTimeRanges: [],
 		timeRanges: [],
 		closeOnWindowScroll: false,
-		disableTextInput: false
+		disableTextInput: false,
+		legend: null
 	};
 	var _lang = {
 		decimal: '.',
@@ -424,6 +425,11 @@
 				wrapped_list.hide();
 			}
 		});
+
+		// Append the legens to the component
+		if (settings.legend) { 
+			wrapped_list.append(settings.legend);
+		}
 	}
 
 	function _attachCloseHandler(settings) {
