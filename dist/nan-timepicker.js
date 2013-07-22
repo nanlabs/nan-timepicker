@@ -427,8 +427,9 @@
 		});
 
 		// Append the legens to the component
-		if (settings.legend) { 
-			wrapped_list.append(settings.legend);
+		if (settings.legend) {
+			var $legend = $('<div class="timepicker-legend" />').append(settings.legend);
+			wrapped_list.append($legend); 
 		}
 	}
 

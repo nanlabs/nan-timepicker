@@ -80,3 +80,8 @@ li.ui-timepicker-selected .ui-timepicker-duration,
 	padding: 3px 5px;
 	float: left;
 }
+
+/* Timepicker Lenged */
+.timepicker-legend {
+	padding: 5px;
+}
