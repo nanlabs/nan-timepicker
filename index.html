@@ -1,0 +1,258 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset='utf-8'>
+  <title>NaN Labs - Timepicker Plugin &ndash; Demos and Documentation</title>
+  <meta name="description" content="A lightweight time-picker plugin based on 'jQuery timepicker plugin'." />
+  <meta name="viewport" content="width=device-width">
+
+  <!-- Vendor Libraries -->
+  <link href="assets/css/bootstrap.css" rel="stylesheet">
+  <script src="assets/js/jquery.js"></script>
+  <script src="assets/js/underscore.js"></script>
+
+  <!-- Plugin Code -->
+  <script type="text/javascript" src="nan-timepicker.js"></script>
+  <link rel="stylesheet" type="text/css" href="nan-timepicker.css" />
+
+  <!-- Docs styles -->
+  <link href="assets/css/docs.css" rel="stylesheet">
+  <style type="text/css">
+    .highlighted {
+      color: blue !important;
+    }
+    .highlighted2 {
+      color: red !important;
+    }
+  </style>
+
+</head>
+
+<body>
+
+  <div class="container">
+
+    <h1>NaN Labs - NaN Time-picker</h1>
+    <p class="lead">A lightweight time-picker plugin based on 'jQuery timepicker plugin'.</p>
+
+
+
+    <div class="example">
+
+      <h3>Basic Example</h3>
+      <p>Typeahead with the taggable feature.</p>
+
+      <div>
+        <label for="example1">Time</label>
+        <input id="example1" type="text" />
+      </div>
+
+      <script>
+        $(function() {
+          $('#example1').timepicker();
+        });
+      </script>
+      <pre>$('#example1').timepicker();</pre>
+
+    </div>
+
+
+
+    <div class="example">
+
+      <h3>Scroll Default Example</h3>
+      <p>Set the scroll position to local time if no value selected.</p>
+
+      <div>
+        <label for="example2">Time</label>
+        <input id="example2" type="text" />
+      </div>
+
+      <script>
+        $(function() {
+          $('#example2').timepicker({ 
+            'scrollDefaultNow': true 
+          });
+        });
+      </script>
+      <pre>
+$('#example2').timepicker({ 
+  'scrollDefaultNow': true 
+});</pre>
+
+    </div>
+
+
+
+    <div class="example">
+
+      <h3>DisableTimeRanges Example</h3>
+      <p>Prevent selection of certain time values.</p>
+
+      <div>
+        <label for="example3">Time</label>
+        <input id="example3" type="text" />
+      </div>
+
+      <script>
+        $(function() {
+          $('#example3').timepicker( { 
+            'disableTimeRanges': [['1am', '2am'], ['3am', '4:01am']] 
+          });
+        });
+      </script>
+      <pre>
+$('#example3').timepicker( { 
+  'disableTimeRanges': [['1am', '2am'], ['3am', '4:01am']] 
+});</pre>
+
+    </div>
+
+
+    <div class="example">
+
+      <h3>With Custom Class Example</h3>
+      <p>Use a specific class to customise how the modal window looks like.</p>
+
+      <div>
+        <label for="example4">Time</label>
+        <input id="example4" type="text" />
+      </div>
+
+      <script>
+        $(function() {
+          $('#example4').timepicker( { 
+            'className': 'no-scroll',
+            'disableTimeRanges': [[0, 10800], ['7pm', '11pm']]
+          });
+        });
+      </script>
+      <pre>
+$('#example4').timepicker( { 
+  'className': 'no-scroll',
+  'disableTimeRanges': [[0, 10800], ['7pm', '11pm']]
+});</pre>
+
+    </div>
+
+
+
+    <div class="example">
+
+      <h3>Several Time Ranges Example</h3>
+      <p>Define several time ranges. Allows you to specify class names and prevent selection time (optional).</p>
+
+      <div>
+        <label for="example5">Time</label>
+        <input id="example5" type="text" />
+      </div>
+
+      <script>
+        $(function() {
+          $('#example5').timepicker( { 
+            className: 'no-scroll',
+            disableTimeRanges: [[0, 10800], ['7pm', '11pm']],
+            timeRanges: [
+              {
+                className: 'highlighted',
+                disabled: true,
+                ranges: [['5am', '6am'], ['11am', '11:30am']]
+              },
+              {
+                className: 'highlighted2',
+                disabled: false,
+                ranges: [['2pm', '3pm'], ['4pm', '7pm']]
+              }
+            ]
+          });
+        });
+      </script>
+      <pre>
+$('#example5').timepicker( { 
+  className: 'no-scroll',
+  disableTimeRanges: [[0, 10800], ['7pm', '11pm']],
+  timeRanges: [
+    {
+      className: 'highlighted',
+      disabled: true,
+      ranges: [['5am', '6am'], ['11am', '11:30am']]
+    },
+    {
+      className: 'highlighted2',
+      disabled: false,
+      ranges: [['2pm', '3pm'], ['4pm', '7pm']]
+    }
+  ]
+});</pre>
+
+    </div>
+
+
+
+    <div class="example">
+
+      <h3>Timepicker with Legend Example</h3>
+      <p>Display a legend to explain range times styles or any other purpose.</p>
+
+      <div>
+        <label for="example6">Time</label>
+        <input id="example6" type="text" />
+      </div>
+
+      <script>
+        $(function() {
+          $('#example6').timepicker( { 
+            className: 'no-scroll',
+            disableTimeRanges: [[0, 10800], ['7pm', '11pm']],
+            legend: '<span>This is a legend</span>',
+            timeRanges: [
+              {
+                className: 'highlighted',
+                disabled: true,
+                ranges: [['5am', '6am'], ['11am', '11:30am']]
+              },
+              {
+                className: 'highlighted2',
+                disabled: false,
+                ranges: [['2pm', '3pm'], ['4pm', '7pm']]
+              }
+            ]
+          });
+        });
+      </script>
+      <pre>
+$('#example6').timepicker( { 
+  className: 'no-scroll',
+  disableTimeRanges: [[0, 10800], ['7pm', '11pm']],
+  legend: '&lt;span&gt;This is a legend&lt;/span&gt;',
+  timeRanges: [
+    {
+      className: 'highlighted',
+      disabled: true,
+      ranges: [['5am', '6am'], ['11am', '11:30am']]
+    },
+    {
+      className: 'highlighted2',
+      disabled: false,
+      ranges: [['2pm', '3pm'], ['4pm', '7pm']]
+    }
+  ]
+});</pre>
+
+    </div>
+
+
+
+  </div>
+
+<script>
+(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+})(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+ga('create', 'UA-41378786-1', 'nan-labs.com');
+ga('send', 'pageview');
+</script>
+
+</body>
+</html>
