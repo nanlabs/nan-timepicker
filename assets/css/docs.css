@@ -1,0 +1,13 @@
+
+label {
+	font-weight: bold;
+}
+
+/* Examples */
+.example {
+	margin: 60px 0; 
+}
+
+ul.ui-timepicker-list li {
+	font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+}
