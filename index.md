@@ -9,6 +9,7 @@ logoImg: logo-195x120.png
 section: project
 header: "NaN Time-picker"
 lead-text: "A lightweight time-picker plugin based on 'jQuery timepicker plugin'."
+github-url: https://github.com/nanlabs/nan-timepicker
 ---
 <div class="example">
 
