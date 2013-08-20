@@ -379,13 +379,10 @@
 					className += ' ui-timepicker-disabled';
 				}
 
-				if (current < length) {
-					if (timeInt >= range[current][1]) {
-						current += 1;
-					}
-
+				for (current; current < length; current++) {
 					if (range[current] && timeInt >= range[current][0] && timeInt < range[current][1]) {
 						row.addClass(className);
+						break;
 					}
 				}
 			}
