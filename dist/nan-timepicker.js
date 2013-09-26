@@ -100,9 +100,9 @@
 			var list = self.data('timepicker-list');
 
 			// check if input is readonly
-			if (self.prop('readonly')) {
-				return;
-			}
+			// if (self.prop('readonly')) {
+			//	return;
+			// }
 
 			// check if list needs to be rendered
 			if (!list || list.length === 0 || typeof settings.durationTime === 'function') {
