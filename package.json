@@ -1,6 +1,6 @@
 {
   "name": "nan-timepicker",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "description": "A lightweight time-picker plugin based on 'jQuery timepicker plugin'.",
   "main": "index.js",
   "scripts": {
