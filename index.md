@@ -26,7 +26,7 @@ github-url: https://github.com/nanlabs/nan-timepicker
     <input id="example1" type="text" />
   </div>
 
-  <script>
+  <script type="text/javascript">
     $(function() {
       $('#example1').timepicker();
     });
@@ -45,7 +45,7 @@ github-url: https://github.com/nanlabs/nan-timepicker
     <input id="example2" type="text" />
   </div>
 
-  <script>
+  <script type="text/javascript">
     $(function() {
       $('#example2').timepicker({ 
         'scrollDefaultNow': true 
@@ -69,7 +69,7 @@ github-url: https://github.com/nanlabs/nan-timepicker
     <input id="example3" type="text" />
   </div>
 
-  <script>
+  <script type="text/javascript">
     $(function() {
       $('#example3').timepicker( { 
         'disableTimeRanges': [['1am', '2am'], ['3am', '4:01am']] 
@@ -93,7 +93,7 @@ github-url: https://github.com/nanlabs/nan-timepicker
     <input id="example4" type="text" />
   </div>
 
-  <script>
+  <script type="text/javascript">
     $(function() {
       $('#example4').timepicker( { 
         'className': 'no-scroll',
@@ -119,7 +119,7 @@ github-url: https://github.com/nanlabs/nan-timepicker
     <input id="example5" type="text" />
   </div>
 
-  <script>
+  <script type="text/javascript">
     $(function() {
       $('#example5').timepicker( { 
         className: 'no-scroll',
@@ -169,7 +169,7 @@ github-url: https://github.com/nanlabs/nan-timepicker
     <input id="example6" type="text" />
   </div>
 
-  <script>
+  <script type="text/javascript">
     $(function() {
       $('#example6').timepicker( { 
         className: 'no-scroll',
