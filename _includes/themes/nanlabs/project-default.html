@@ -61,31 +61,31 @@
 
   <body>
 
-    <section class="container-fluid">
-        <section class="row-fluid">
-            <div class="span12 site">
-                {% include themes/nanlabs/project-header.html %}
+    {% if page.github-url %}
+    <a href="{{ page.github-url }}"><img style="position: absolute; top: 0; right: 0; border: 0;" src="https://s3.amazonaws.com/github/ribbons/forkme_right_darkblue_121621.png" alt="Fork me on GitHub"></a>
+    {% endif %}
 
-                <section class="row-fluid content">
-                  <div class="span12 {{ page.section }}">
-                    <div class="row-fluid">
-                        <article class="span12">
-                            <p class="lead">{{ page.lead-text }}</p>
-                            <section class="project-doc">
-                              {{ content }}
-                            </section>
-                        </article>
-                    </div>
-                  </div>
+    <div class="container-fluid">
 
-                  {% if page.github-url %}<div class="span12 github-link-container"><a class="btn" href="{{ page.github-url }}" target="_blank"><i class="icon-github"></i> Project on GitHub</a></div>{% endif %}
+      <header class="row-fluid header-page clearfix"> 
+          <a href="/index.html" title="Home"> 
+              <div class="span4 logo pagination-centered">
+                  <img src="/assets/themes/nanlabs/img/logo-195x120.png" alt="NaN Labs Logo">
+              </div>
+          </a>
+          <div class="span8 box hidden-phone">
+              <h1 class="span11">well-crafted software</h1>
+          </div>
+      </header>
+      
+      <section class="container-fluid">
+          <h1>{{ page.header }}</h1>
+          <p class="lead">{{ page.lead-text }}</p>
 
-                </section>
+          {{ content }}
+      </section>
 
-                {% include themes/nanlabs/footer.html %}
-            </div>
-        </section>
-    </section>
+    </div>
 
     
     {% include JB/analytics %}
