@@ -11,6 +11,11 @@ header: "NaN Time-picker"
 lead-text: "A lightweight time-picker plugin based on 'jQuery timepicker plugin'."
 github-url: https://github.com/nanlabs/nan-timepicker
 ---
+
+<!-- Plugin Code -->
+<script type="text/javascript" src="nan-timepicker.js"></script>
+<link rel="stylesheet" type="text/css" href="nan-timepicker.css" />
+
 <div class="example">
 
   <h3>Basic Example</h3>
