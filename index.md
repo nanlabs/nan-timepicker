@@ -13,6 +13,7 @@ github-url: https://github.com/nanlabs/nan-timepicker
 ---
 
 <!-- Plugin Code -->
+<script type="text/javascript" src="assets/js/underscore.js"></script>
 <script type="text/javascript" src="nan-timepicker.js"></script>
 <link rel="stylesheet" type="text/css" href="nan-timepicker.css" />
 
