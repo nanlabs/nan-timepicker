@@ -193,6 +193,10 @@
 			return self;
 		},
 
+		get: function() {
+			return $(this);
+		},
+
 		getSecondsFromMidnight: function() {
 			return _time2int(_getTimeValue(this));
 		},
